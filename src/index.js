@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
-import glamorous from 'glamorous'
+import styled from '@emotion/styled'
 
 export default class AvatarThumb extends Component {
 
   render() {
 
     const { src, firstName, lastName, style } = this.props
-    
+
     let { bgColor, radius, fontSize, color } = this.props
     if (!bgColor) { bgColor = '#7DCE82'}
     if (!fontSize) { fontSize = '18px'}
     if (!radius) { radius = '45px'}
     if (!color) { color = 'white'}
 
-    const AvatarDIV = glamorous.div({
+    const AvatarDIV = styled.div({
       width: radius,
       height: radius,
       borderRadius: `${(parseFloat(radius) / 2)}px`,
@@ -22,7 +22,7 @@ export default class AvatarThumb extends Component {
 
     let element
     if (src) {
-      const AvatarIMG = glamorous.img({
+      const AvatarIMG = styled.img({
         width: 'auto',
         height: 'auto',
         minWidth: radius,
@@ -30,7 +30,7 @@ export default class AvatarThumb extends Component {
       })
       element = <AvatarIMG src={src} alt={ `${firstName} ${lastName}` }/>
     } else {
-      const Circle = glamorous.div({
+      const Circle = styled.div({
         width: radius,
         height: radius,
         lineHeight: radius,
